@@ -1,6 +1,8 @@
 ## PhotoPickerAndroidX 版本
 
-由于原版本已不再维护，但本人所维护的部分项目还在使用，且需要升级至 AndroidX，故做了迁移 AndroidX 的工作，现发布到 jitpack。版本号重新开始。
+由于原版本已不再维护，但本人所维护的部分项目还在使用，且需要升级至 AndroidX，故做了迁移 AndroidX 的工作，现发布到 jitpack，版本号重新开始。
+
+原项目地址：https://github.com/donglua/PhotoPicker
 
 [![](https://jitpack.io/v/CherryLover/PhotoPickModule.svg)](https://jitpack.io/#CherryLover/PhotoPickModule)
 
