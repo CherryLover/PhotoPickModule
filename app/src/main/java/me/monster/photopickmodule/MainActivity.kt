@@ -1,21 +1,47 @@
 package me.monster.photopickmodule
 
 import android.Manifest
+import android.app.Activity
+import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import me.iwf.photopicker.PhotoPicker
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
+
+    companion object {
+        const val tag = "MainActivity"
+
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         btn_test.setOnClickListener { preCheck() }
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+        if (requestCode == PhotoPicker.REQUEST_CODE && resultCode == Activity.RESULT_OK) {
+            var photos: ArrayList<String>? = ArrayList()
+            if (data != null) {
+                photos = data.getStringArrayListExtra(PhotoPicker.KEY_SELECTED_PHOTOS)
+            }
+            if (photos.isNullOrEmpty()) {
+                return
+            }
+            val sb = StringBuilder()
+            photos.forEach { sb.append(it).append('\n') }
+            tv_selector_result.text = sb.toString()
+            Log.e(tag, "file path : ${tv_selector_result.text}")
+        }
     }
 
     private fun preCheck() {
