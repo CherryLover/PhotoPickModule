@@ -1,0 +1,39 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.github.dcendents.android-maven'
+
+group='com.github.CherryLover'
+android {
+  compileSdkVersion 28
+  resourcePrefix "__picker_"
+
+  dexOptions {
+    javaMaxHeapSize "4g"
+  }
+  defaultConfig {
+    minSdkVersion 14
+    targetSdkVersion 28
+  }
+  lintOptions {
+    abortOnError false
+  }
+}
+
+dependencies {
+  implementation "androidx.legacy:legacy-support-v4:1.0.0"
+  implementation "androidx.appcompat:appcompat:1.1.0"
+  implementation "com.google.android.material:material:1.1.0-alpha10"
+  implementation "androidx.recyclerview:recyclerview:1.0.0"
+  implementation "androidx.annotation:annotation:1.1.0"
+  implementation rootProject.ext.dependencies["glide"]
+  annotationProcessor 'com.github.bumptech.glide:compiler:4.1.1'
+}
+
+//apply plugin: 'com.novoda.bintray-release'
+//publish {
+//  userOrg = 'donglua'
+//  groupId = 'me.iwf.photopicker'
+//  artifactId = 'PhotoPicker'
+//  publishVersion = '0.9.12'
+//  desc = 'Photo Picker'
+//  website = 'https://github.com/donglua/PhotoPicker'
+//}
