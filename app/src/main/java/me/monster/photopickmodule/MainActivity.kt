@@ -6,11 +6,11 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.os.Build
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import kotlinx.android.synthetic.main.activity_main.*
 import me.iwf.photopicker.PhotoPicker
+import me.iwf.photopicker.utils.LogUtil
 import java.util.*
 
 class MainActivity : AppCompatActivity() {
@@ -40,7 +40,7 @@ class MainActivity : AppCompatActivity() {
             val sb = StringBuilder()
             photos.forEach { sb.append(it).append('\n') }
             tv_selector_result.text = sb.toString()
-            Log.e(tag, "file path : ${tv_selector_result.text}")
+            LogUtil.e(tag, "file path : ${tv_selector_result.text}")
         }
     }
 
