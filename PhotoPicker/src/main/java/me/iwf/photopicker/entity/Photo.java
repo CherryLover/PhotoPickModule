@@ -1,5 +1,7 @@
 package me.iwf.photopicker.entity;
 
+import java.io.File;
+
 /**
  * Created by donglua on 15/6/30.
  */
@@ -7,10 +9,12 @@ public class Photo {
 
   private int id;
   private String path;
+    private long modifiedTime = 0;
 
   public Photo(int id, String path) {
     this.id = id;
     this.path = path;
+      modifiedTime = new File(path).lastModified();
   }
 
   public Photo() {
@@ -35,6 +39,7 @@ public class Photo {
 
   public void setPath(String path) {
     this.path = path;
+      modifiedTime = new File(path).lastModified();
   }
 
   public int getId() {
@@ -44,4 +49,8 @@ public class Photo {
   public void setId(int id) {
     this.id = id;
   }
+
+    public long modifiedTime() {
+        return modifiedTime;
+    }
 }

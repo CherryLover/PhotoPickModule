@@ -120,4 +120,13 @@ public class PhotoDirectory {
     }
   }
 
+    public void addPhoto(int index, int id, String path) {
+        if (FileUtils.fileIsExists(path)) {
+            photos.add(index, new Photo(id, path));
+            if (index == 0) {
+                setCoverPath(path);
+            }
+        }
+    }
+
 }
